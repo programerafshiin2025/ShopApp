@@ -6,5 +6,5 @@ const router=express.Router();
 
 router.route('/').get(getUsers).post(CreateUser)
 router.route('/:id').get(getUserById).put(UpdateUser)
-router.route('/login').post(Login)
+router.route('/loging').post(Loging)
 export default router

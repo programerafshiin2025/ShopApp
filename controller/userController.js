@@ -22,18 +22,19 @@ export const getUserById=async(req, res)=>{
 
 export const Loging=async(req, res)=>{
           try{
-                    const {  email, password, }=req.body
-                    const isUserExist=Users.findOne({email})
+                    const {  email, password, }=req.body;
+
+                    const user= await Users.findOne({email})
                     if(user){
-                              if(user,password==password){
-                                        res.status(200).json(user)
+                              if(user.password==password){
+                                        res.status(200).json(user);
                               }
                               else{
-                                        res.status(400).json({message:"wrong password"})
+                                        res.status(400).json({message:"wrong password"});
                               }
                     }
                     else{
-                              res.status(400).json({message:"user no found "})
+                              res.status(400).json({message:"user no found "});
                     }
 
 
